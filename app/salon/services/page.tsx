@@ -16,6 +16,8 @@ import {useRouter} from "next/navigation";
 import {useToast} from "@/components/ui/use-toast"
 
 import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
+import {any} from "prop-types";
+import Link from "next/link";
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -230,7 +232,13 @@ export default function Services() {
                 </div>
 
                 <Button>Update Salon</Button>
-
+                <Link href={'/salon/services'}>
+                    <Button variant={"outline"}>Add Services</Button>
+                </Link>
+                
+                <Link href={'/salon/availability'}>
+                <Button variant={"outline"}>Add Availability</Button>
+                </Link>
 
                 {/*<div className={"flex w-full max-w-screen-sm overflow-hidden flex-wrap mt-5  gap-2"}>
                     <img className={"w-1/3 rounded"} src={salon ? salon.img_1 :''} alt=""/>
@@ -379,7 +387,7 @@ export default function Services() {
                 </div>
                 <div
                     className="w-full lg:w-1/2 p-10 overflow-scroll  hide-scrollbar flex flex-col">
-                    <p className={"mb-5"}>Service List</p>
+                    <p className={"mb-5 mt-10"}>Service List</p>
 
                     <Table>
                         <TableCaption>A list of your services.</TableCaption>
@@ -398,9 +406,8 @@ export default function Services() {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {services.map(service =>
-
-                                <TableRow>
+                            {services.map((service:any, index) => {
+                                return <TableRow key={index}>
                                     <TableCell className="font-medium">{service.id}</TableCell>
                                     <TableCell>{service.name}</TableCell>
                                     <TableCell>{service.description}</TableCell>
@@ -412,6 +419,7 @@ export default function Services() {
                                     <TableCell className="text-right">{service.slot_count}</TableCell>
                                     <TableCell className="text-right">Rs.{service.price}</TableCell>
                                 </TableRow>
+                            }
                             )}
 
                         </TableBody>
