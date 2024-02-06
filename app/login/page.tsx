@@ -12,14 +12,17 @@ import { useRouter } from 'next/navigation';
 import axios from '../../lib/HttpInterceptor';
 import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
 import {ExclamationTriangleIcon} from "@radix-ui/react-icons";
+import {useToast} from "@/components/ui/use-toast";
+import {ToastAction} from "@/components/ui/toast";
 
 const Login = () => {
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-
+    const { toast } = useToast()
     useEffect(() => {
         const token = localStorage.getItem("jwt_token");
+
         if(token !==null){
             // router.push('/home');
         }
@@ -34,10 +37,20 @@ const Login = () => {
             console.log(resp.status, resp.data.data.token)
 
             if(resp.status, resp.data.data.token){
+
+                toast({
+                    title: "Successful ",
+                    description: `Logged in as ${resp.data.data.user.name}`,
+                 /*   action: (
+                        <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+                    ),*/
+                })
+
+
                 localStorage.setItem('jwt_token',resp.data.data.token)
                 const token = localStorage.getItem("jwt_token"); // Retrieve token from your preferred storage
                 console.log('Retrieving',token)
-                router.push('/'); // Navigate to /dashboard
+                router.push('/home'); // Navigate to /dashboard
             }
 
             // Handle successful login based on the API response

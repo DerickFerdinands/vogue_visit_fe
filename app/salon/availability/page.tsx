@@ -53,7 +53,7 @@ export default function Services() {
             startTime,
             endTime)
             const resp = await axios.post('/slots/',{
-                    "date": date.getFullYear()+"-"+1+"-"+date.getDate(),
+                    "date": date.getFullYear()+"-"+2+"-"+date.getDate(),
                     "start_time": startTime,
                     "end_time": endTime
                 }
