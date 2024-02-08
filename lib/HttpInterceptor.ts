@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://127.0.0.1:8000',
+    baseURL: 'http://3.90.165.236:8000',
 });
 
 
