@@ -71,7 +71,7 @@ const Home = () => {
                 </div>*/}
                 <Carousel orientation={"horizontal"} className="w-full max-h-screen">
                     <CarouselContent className={""}>
-                        {salons.map((salon, index) => (
+                        {salons.map((salon:any, index) => (
                             <CarouselItem
                                 onClick={()=>{
                                     router.push(`/home/content?${createQueryString('id',salon.id)}`)

@@ -39,7 +39,7 @@ export default function Services() {
 
     const [submit, setSubmit] = useState(false);
 
-    const [salon, setSalon] = useState(null);
+    const [salon, setSalon] = useState<any>(null);
     const [dates, setDates] = useState([]);
     const [slots, setSlots] = useState([]);
     const [date, setDate] = React.useState<Date>()
@@ -191,14 +191,14 @@ export default function Services() {
 
                         <div className={"flex flex-col gap-3 mt-5"}>
                             <Label>Start Time</Label>
-                            <Input onChange={(e)=>{
+                            <Input onChange={(e:any)=>{
                                 setStartTime(e.target.value)
                                 console.log(e)
                             }} type={"time"}/>
                         </div>
                         <div className={"flex flex-col gap-3 mt-5"}>
                             <Label>End Time</Label>
-                            <Input onChange={(e)=>{
+                            <Input onChange={(e:any)=>{
                                 setEndTime(e.target.value)
                                 console.log(e)
                             }} type={"time"}/>

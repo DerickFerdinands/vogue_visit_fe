@@ -39,7 +39,7 @@ const Home = () => {
         getContent();
     }, []);
 
-    const [salon, setSalon] = useState(null)
+    const [salon, setSalon] = useState<any>(null)
     const [services, setServices] = useState([])
 
 
@@ -155,7 +155,7 @@ const Home = () => {
                     className="w-full max-w-screen-2xl"
                 >
                     <CarouselContent>
-                        {services.map((service, index) => (
+                        {services.map((service:any, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
                                 <div className="p-1">
                                     <Card style={{background: 'rgba(83, 82, 82, 0.14)'}} className={"border-none"}>

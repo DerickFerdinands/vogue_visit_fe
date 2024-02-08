@@ -65,7 +65,7 @@ export default function Services() {
     const [img05, setImg05] = useState(null);
     const [submit, setSubmit] = useState(false);
 
-    const [salon, setSalon] = useState(null);
+    const [salon, setSalon] = useState<any>(null);
     const [services, setServices] = useState([]);
 
     const [img01Progress, setImg01Progress] = useState(0);
@@ -235,7 +235,7 @@ export default function Services() {
                 <Link href={'/salon/services'}>
                     <Button variant={"outline"}>Add Services</Button>
                 </Link>
-                
+
                 <Link href={'/salon/availability'}>
                 <Button variant={"outline"}>Add Availability</Button>
                 </Link>

@@ -82,7 +82,7 @@ const Home = () => {
 
     const handleSlotOnDblClick = (slot: any) => {
         if (checkIfSlotExists(slot))
-            setSelectedSlots(selectedSlots.filter(sSlot => sSlot.id !== slot.id))
+            setSelectedSlots(selectedSlots.filter((sSlot:any) => sSlot.id !== slot.id))
     }
 
     const  handleAppointmentOnClick = async ()=> {
@@ -90,7 +90,7 @@ const Home = () => {
         const appointmentResp = await axios.post(`/appointments/`,{
             salon_id:salon.id,
             service_id:service.id,
-            slots:selectedSlots.map(sSlot=>sSlot.id)
+            slots:selectedSlots.map((sSlot:any)=>sSlot.id)
         });
         console.log(appointmentResp.data.data)
 

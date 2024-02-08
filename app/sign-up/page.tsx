@@ -20,7 +20,7 @@ const SignUp = () => {
     useEffect(() => {
         const token = localStorage.getItem("jwt_token");
         if(token !==null){
-            router.push('/');
+            // router.push('/');
         }
     }, []);
 
